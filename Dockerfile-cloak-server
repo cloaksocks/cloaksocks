@@ -1,4 +1,4 @@
-FROM golang:1.22.5-alpine3.20 AS build
+FROM golang:1.24.3-alpine3.21 AS build
 
 WORKDIR /opt
 RUN apk add git make
@@ -16,17 +16,17 @@ RUN apk upgrade \
     && apk add tzdata \
     && rm -rf /var/cache/apk/*
 
-ENV LOCAL_IP     127.0.0.1
-ENV LOCAL_PORT   8399
-ENV METHOD       shadowsocks
-ENV BYPASSUID    null
-ENV REDIRADDR    1.0.0.1
-ENV PRIVATEKEY   null
-ENV ADMINUID     null
-ENV PUBLICKEY    null
-ENV ENCRYPTION   AEAD_CHACHA20_POLY1305
-ENV PASSWORD     null
-ENV BINDPORT     443
+ENV LOCAL_IP=127.0.0.1
+ENV LOCAL_PORT=8399
+ENV METHOD=shadowsocks
+ENV BYPASSUID=null
+ENV REDIRADDR=1.0.0.1
+ENV PRIVATEKEY=null
+ENV ADMINUID=null
+ENV PUBLICKEY=null
+ENV ENCRYPTION=AEAD_CHACHA20_POLY1305
+ENV PASSWORD=null
+ENV BINDPORT=443
 
 EXPOSE 443/tcp
 
